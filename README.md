@@ -13,3 +13,6 @@ Alex is 30 years old builder living in London. He is married and has a little ch
 
 ## Implementation
 
+## Assumptions
+- We have only one type of network API call in our network, so I injected the autherisation code to all requests in backend's network layers
+
