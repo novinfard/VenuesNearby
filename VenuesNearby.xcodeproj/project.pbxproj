@@ -16,6 +16,8 @@
 		CD31EB7F20E7AA8F006030C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD31EB7D20E7AA8F006030C5 /* LaunchScreen.storyboard */; };
 		CD31EB8A20E7AA8F006030C5 /* VenuesNearbyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD31EB8920E7AA8F006030C5 /* VenuesNearbyTests.swift */; };
 		CDF5CE3420E971870069C0E7 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF5CE3320E971870069C0E7 /* BackendService.swift */; };
+		CDF5CE3620E97A0F0069C0E7 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF5CE3520E97A0F0069C0E7 /* ContentService.swift */; };
+		CDF5CE3820E97C530069C0E7 /* ParserScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF5CE3720E97C530069C0E7 /* ParserScheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		CD31EB8920E7AA8F006030C5 /* VenuesNearbyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesNearbyTests.swift; sourceTree = "<group>"; };
 		CD31EB8B20E7AA8F006030C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDF5CE3320E971870069C0E7 /* BackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
+		CDF5CE3520E97A0F0069C0E7 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
+		CDF5CE3720E97C530069C0E7 /* ParserScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserScheme.swift; sourceTree = "<group>"; };
 		D95AEA396CCCAFB95F6B500E /* Pods_VenuesNearby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VenuesNearby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,6 +117,8 @@
 			children = (
 				CD31EB7420E7AA8E006030C5 /* AppDelegate.swift */,
 				CDF5CE3320E971870069C0E7 /* BackendService.swift */,
+				CDF5CE3520E97A0F0069C0E7 /* ContentService.swift */,
+				CDF5CE3720E97C530069C0E7 /* ParserScheme.swift */,
 				CD31EB7620E7AA8E006030C5 /* ViewController.swift */,
 				CD31EB7820E7AA8E006030C5 /* Main.storyboard */,
 				CD31EB7B20E7AA8F006030C5 /* Assets.xcassets */,
@@ -344,7 +350,9 @@
 			files = (
 				CD31EB7720E7AA8E006030C5 /* ViewController.swift in Sources */,
 				CDF5CE3420E971870069C0E7 /* BackendService.swift in Sources */,
+				CDF5CE3820E97C530069C0E7 /* ParserScheme.swift in Sources */,
 				CD31EB7520E7AA8E006030C5 /* AppDelegate.swift in Sources */,
+				CDF5CE3620E97A0F0069C0E7 /* ContentService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

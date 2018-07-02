@@ -11,6 +11,7 @@ import Alamofire
 
 struct ApiUrl {
 	static let explore = "https://api.foursquare.com/v2/venues/explore"
+	static let search = "https://api.foursquare.com/v2/venues/search"
 }
 
 struct ApiKey {
@@ -32,15 +33,28 @@ class BackendService: NSObject {
 		var requestedParams = params
 		// add api key to requests
 		if requestedParams != nil {
-			requestedParams!["client_id"] = ApiKey.clientId
-			requestedParams!["client_secret"] = ApiKey.clientSecret
+			let todaysDate = Date()
+			let dateFormatter = DateFormatter()
+			dateFormatter.dateFormat = "yyyyMMdd"
+			let todayString = dateFormatter.string(from: todaysDate)
+
+			requestedParams!["client_id"]		= ApiKey.clientId
+			requestedParams!["client_secret"]	= ApiKey.clientSecret
+			requestedParams!["v"]				= todayString
 		}
 		
-		Alamofire.request(url, method: .post, parameters: params).responseJSON { response in
+		let newUrl : String
+		if let trailer = String.queryStringFromParameters(parameters: requestedParams as! Dictionary<String, String>) {
+			newUrl = url + trailer
+		} else {
+			newUrl = url
+		}
+		
+		Alamofire.request(newUrl, method: httpMethod, parameters: nil).responseJSON { response in
 			// error handling
 			guard case let .failure(error) = response.result else {
 				// successful
-				// print(response)
+				print(response)
 				success(response.data)
 				return
 			}
@@ -52,4 +66,32 @@ class BackendService: NSObject {
 		}
 	}
 	
+}
+
+extension String {
+	func URLEncodedString() -> String? {
+		let escapedString = self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+		return escapedString
+	}
+	static func queryStringFromParameters(parameters: Dictionary<String,String>) -> String? {
+		if (parameters.count == 0)
+		{
+			return nil
+		}
+		var queryString : String? = nil
+		for (key, value) in parameters {
+			if let encodedKey = key.URLEncodedString() {
+				if let encodedValue = value.URLEncodedString() {
+					if queryString == nil {
+						queryString = "?"
+					}
+					else {
+						queryString! += "&"
+					}
+					queryString! += encodedKey + "=" + encodedValue
+				}
+			}
+		}
+		return queryString
+	}
 }
