@@ -6,6 +6,7 @@ target 'VenuesNearby' do
   use_frameworks!
   pod 'Alamofire', '~> 4.7'
   pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'SwiftyJSON', '~> 4.0'
 
   # Pods for VenuesNearby
 
