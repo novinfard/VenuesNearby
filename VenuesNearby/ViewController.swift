@@ -13,8 +13,8 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		ContentService.shared.getTopVenues(success: {
-			$0
+		ContentService.shared.getTopVenues(success: { spots in
+			print(spots!)
 		}) {
 			$0
 		}

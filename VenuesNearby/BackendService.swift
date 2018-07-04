@@ -54,7 +54,7 @@ class BackendService: NSObject {
 			// error handling
 			guard case let .failure(error) = response.result else {
 				// successful
-				print(response)
+//				print(response)
 				success(response.data)
 				return
 			}

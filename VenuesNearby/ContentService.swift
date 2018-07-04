@@ -7,22 +7,86 @@
 //
 
 import Foundation
+import SwiftyJSON
+
 class ContentService: NSObject {
 	static let shared = ContentService()
 	
-	func getTopVenues(success: @escaping (_ vanues: [Venue]?)-> Void, failure: @escaping(_ error: Error)-> Void) {
+	enum contentError: Error {
+		case invalidData
+		case invalidServiceFetch
+	}
+	
+	func getTopVenues(success: @escaping (_ spot: [Spot]?)-> Void, failure: @escaping(_ error: Error)-> Void) {
 		let parameters = [
 			"ll"	: "40.7,-74",
 			"near"	: "NYC"
 		]
 	
 		BackendService.shared.callNetwork(httpMethod: .get, params: parameters, url: ApiUrl.explore, onSuccess: { jsonData in
-//			if let jsonData = jsonData {
-//				let vanues = try? JSONDecoder().decode(VenueResponse.self, from: jsonData)
-//				success(vanues)
-//			}
+			guard let jsonData = jsonData else {
+				failure(contentError.invalidData)
+				return
+			}
+			do {
+				let json = try JSON(data: jsonData)
+				if json["meta"]["code"].intValue == 200 {
+					success(self.parseSpots(json: json))
+					
+				} else {
+					failure(contentError.invalidServiceFetch)
+				}
+			} catch let error as NSError {
+				failure(error)
+			}
+			
+
+
 		}) { error in
 			failure(error)
 		}
+	}
+	
+	private func parseSpots(json: JSON) -> [Spot] {
+		var results = [Spot]()
+			print (json)
+			for spot in json["response"]["groups"][0]["items"].arrayValue {
+				let venueTemp = spot["venue"]
+				let locTemp = venueTemp["location"]
+				let location = Location(
+					state: locTemp["state"].stringValue,
+					city: locTemp["city"].stringValue,
+					postalCode: locTemp["postalCode"].stringValue,
+					lng: locTemp["lng"].doubleValue,
+					lat: locTemp["lat"].doubleValue,
+					formattedAddress: locTemp["formattedAddress"].arrayValue.map { $0.stringValue},
+					distance: locTemp["lat"].intValue)
+				var categories = [CategoryObject]()
+				for cat in venueTemp["categories"].arrayValue {
+					let category = CategoryObject(
+						name: cat["name"].stringValue,
+						primary: cat["primary"].boolValue,
+						id: cat["id"].stringValue,
+						pluralName: cat["pluralName"].stringValue,
+						shortName: cat["shortName"].stringValue
+					)
+					categories.append(category)
+				}
+				let venueItem = Venue(name: venueTemp["name"].stringValue, location: location, id: venueTemp["id"].stringValue, categories: categories)
+				
+				var reasons = [Reason]()
+				for rs in spot["reasons"]["items"].arrayValue {
+					let reasonItem = Reason(
+						summary: rs["summary"].stringValue,
+						type: rs["type"].stringValue,
+						reasonName: rs["reasonName"].stringValue
+					)
+					reasons.append(reasonItem)
+				}
+				let spotItem = Spot(venue: venueItem, reasons: reasons)
+				results.append(spotItem)
+			}
+		
+		return results
 	}
 }
