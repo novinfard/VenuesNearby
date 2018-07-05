@@ -15,6 +15,7 @@
 		CD31EB7C20E7AA8F006030C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD31EB7B20E7AA8F006030C5 /* Assets.xcassets */; };
 		CD31EB7F20E7AA8F006030C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD31EB7D20E7AA8F006030C5 /* LaunchScreen.storyboard */; };
 		CD31EB8A20E7AA8F006030C5 /* VenuesNearbyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD31EB8920E7AA8F006030C5 /* VenuesNearbyTests.swift */; };
+		CD5AEB8320ED1670006053D9 /* SpotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5AEB8220ED1670006053D9 /* SpotTableViewCell.swift */; };
 		CDF5CE3420E971870069C0E7 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF5CE3320E971870069C0E7 /* BackendService.swift */; };
 		CDF5CE3620E97A0F0069C0E7 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF5CE3520E97A0F0069C0E7 /* ContentService.swift */; };
 		CDF5CE3820E97C530069C0E7 /* ParserScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF5CE3720E97C530069C0E7 /* ParserScheme.swift */; };
@@ -46,6 +47,7 @@
 		CD31EB8520E7AA8F006030C5 /* VenuesNearbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenuesNearbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD31EB8920E7AA8F006030C5 /* VenuesNearbyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesNearbyTests.swift; sourceTree = "<group>"; };
 		CD31EB8B20E7AA8F006030C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD5AEB8220ED1670006053D9 /* SpotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotTableViewCell.swift; sourceTree = "<group>"; };
 		CDF5CE3320E971870069C0E7 /* BackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
 		CDF5CE3520E97A0F0069C0E7 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
 		CDF5CE3720E97C530069C0E7 /* ParserScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserScheme.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				CDF5CE3520E97A0F0069C0E7 /* ContentService.swift */,
 				CDF5CE3720E97C530069C0E7 /* ParserScheme.swift */,
 				CD31EB7620E7AA8E006030C5 /* ViewController.swift */,
+				CD5AEB8220ED1670006053D9 /* SpotTableViewCell.swift */,
 				CD31EB7820E7AA8E006030C5 /* Main.storyboard */,
 				CD31EB7B20E7AA8F006030C5 /* Assets.xcassets */,
 				CD31EB7D20E7AA8F006030C5 /* LaunchScreen.storyboard */,
@@ -353,6 +356,7 @@
 				CD31EB7720E7AA8E006030C5 /* ViewController.swift in Sources */,
 				CDF5CE3420E971870069C0E7 /* BackendService.swift in Sources */,
 				CDF5CE3820E97C530069C0E7 /* ParserScheme.swift in Sources */,
+				CD5AEB8320ED1670006053D9 /* SpotTableViewCell.swift in Sources */,
 				CD31EB7520E7AA8E006030C5 /* AppDelegate.swift in Sources */,
 				CDF5CE3620E97A0F0069C0E7 /* ContentService.swift in Sources */,
 			);
@@ -518,7 +522,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQ3DDEUQ7K;
 				INFOPLIST_FILE = VenuesNearby/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.novinfard.VenuesNearby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -534,7 +541,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQ3DDEUQ7K;
 				INFOPLIST_FILE = VenuesNearby/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.novinfard.VenuesNearby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -551,7 +561,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQ3DDEUQ7K;
 				INFOPLIST_FILE = VenuesNearbyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.novinfard.VenuesNearbyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -569,7 +583,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQ3DDEUQ7K;
 				INFOPLIST_FILE = VenuesNearbyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.novinfard.VenuesNearbyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
