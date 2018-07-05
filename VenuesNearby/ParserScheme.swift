@@ -34,10 +34,11 @@ struct Location {
 	let lat: Double?
 	let formattedAddress: Array<String>?
 	let distance: Int?
+	let address: String?
 }
 
 struct CategoryObject {
-	let name: String?
+	let name: String
 	let primary: Bool?
 	let id:	String?
 	let pluralName: String?
