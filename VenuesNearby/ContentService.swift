@@ -24,9 +24,7 @@ class ContentService: NSObject {
 			"ll"	: llString,
 			"near"	: placeName
 		]
-		
-		print(parameters)
-		
+				
 		BackendService.shared.callNetwork(httpMethod: .get, params: parameters, url: ApiUrl.explore, onSuccess: { jsonData in
 			guard let jsonData = jsonData else {
 				failure(contentError.invalidData)

@@ -94,9 +94,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1sc-tD-cUN" secondAttribute="bottom" id="41D-ZQ-LlE"/>
-                            <constraint firstItem="53u-vi-5Fj" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="Dws-K2-4GB"/>
                             <constraint firstItem="1sc-tD-cUN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="F0u-69-a5p"/>
-                            <constraint firstItem="53u-vi-5Fj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-375" id="n5B-Wc-SmG"/>
+                            <constraint firstItem="53u-vi-5Fj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cbW-6I-fBb"/>
+                            <constraint firstItem="53u-vi-5Fj" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="eKq-eM-K81"/>
                             <constraint firstItem="53u-vi-5Fj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="nzC-Vl-dlN"/>
                             <constraint firstItem="1sc-tD-cUN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vAM-f3-rYH"/>
                             <constraint firstItem="1sc-tD-cUN" firstAttribute="top" secondItem="53u-vi-5Fj" secondAttribute="bottom" constant="1" id="xnz-Uw-RVg"/>
